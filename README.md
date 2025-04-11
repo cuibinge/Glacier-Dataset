@@ -32,10 +32,10 @@ The choice of a 256 × 256 resolution strikes a balance between capturing suffic
 
 ## Sample Images
 
-![Greenland Sample](samples/greenland_sample.jpg)  
+![Greenland Sample](samples/greenland_sample.png)  
 *Sample from Southeastern Coast of Greenland*
 
-![Svalbard Sample](samples/svalbard_sample.jpg)  
+![Svalbard Sample](samples/svalbard_sample.png)  
 *Sample from the Svalbard Archipelago*
 
 ---
