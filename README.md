@@ -26,17 +26,17 @@ This dataset contains bitemporal remote sensing images from two representative p
 ---
 ## Data Construction and Patch Sampling
 
-In our study, the original satellite imagery acquired from Landsat-8 covered a region measuring 8541 × 8601 pixels, with a spatial resolution of 30 meters. To focus on glacier-dominated areas, the images were filtered and cropped, resulting in a subregion of 5109 × 4801 pixels. For the construction of glacier change detection samples, we applied a sliding window approach with a stride of 128 pixels to extract image patches of size 256 × 256 pixels from the cropped area. This process yielded a total of 683 bitemporal image pairs, which were used in our dataset.
-
-The choice of a 256 × 256 resolution strikes a balance between capturing sufficient spatial detail for effective glacier change detection and maintaining computational efficiency. Additionally, the patch size ensures that each sample contains relevant information from both pre- and post-event imagery, enabling accurate change analysis without incurring excessive computational cost.
-
+In our study, To construct a high-quality glacier change detection dataset, we first collected bi-temporal Landsat-8 imagery covering polar regions, with an original size of 8541 × 8601 pixels and a spatial resolution of 30 meters. To focus on glacier-dominated areas and exclude irrelevant background, we manually selected and cropped a subregion of 5109 × 4801 pixels. A sliding window approach with a patch size of 256 × 256 pixels and a stride of 128 pixels was then applied, resulting in 683 bi-temporal image pairs. This number is thus determined by the spatial extent of the region and the patch extraction strategy, rather than being arbitrary.
+The choice of 256×256 resolution was driven by a trade-off between spatial detail and computational efficiency. Larger patches (e.g., 512×512) were avoided because they require significantly more GPU memory, reduce training speed, and tend to include a higher proportion of unchanged areas. This can lead to class imbalance, increasing the number of negative samples and causing the model to favor “no-change” predictions, ultimately lowering recall rate. In contrast, 256-sized patches ensure sufficient contextual information while maintaining a more balanced representation of change and no-change areas, thereby supporting more effective learning.
 ## Sample Images
 
-![Greenland Sample](samples/greenland_sample.jpg)  
+![Greenland Image](samples/greenland_A.png)  
 *Sample from Southeastern Coast of Greenland*
+![Greenland Image](samples/greenland_B.png) 
 
-![Svalbard Sample](samples/svalbard_sample.jpg)  
+![Svalbard Sample](samples/svalbard_A.png)  
 *Sample from the Svalbard Archipelago*
+![Svalbard Sample](samples/svalbard_B.png)  
 
 ---
 
